@@ -1,9 +1,9 @@
 const aws = require("aws-sdk"); // Software developmwnt kit (sdk)
 
 aws.config.update({
-  accessKeyId: "AKIAY3L35MCRRMC6253G", // process.env.ACCESS
-  secretAccessKey: "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",
-  region: "ap-south-1",
+  accessKeyId: "", // use company accessKeyId
+  secretAccessKey: "",//use company secretAccessKey
+  region: "",//use company region
 });
 
 let uploadFile = async (file) => {
@@ -11,8 +11,8 @@ let uploadFile = async (file) => {
     let s3 = new aws.S3({ apiVersion: "2006-03-01" });
     var uploadParams = {
       ACL: "public-read",
-      Bucket: "classroom-training-bucket",
-      Key: "pk_newFolder/folderInsideFolder/oneMore/foo/" + file.originalname, // HERE    "pk_newFolder/harry-potter.png" pk_newFolder/harry-potter.png
+      Bucket: "t",// use company Bucket
+      Key: "pk_newFolder/folderInsideFolder/oneMore/foo/" + file.originalname, //    
       Body: file.buffer,
     };
     s3.upload(uploadParams, function (err, data) {
